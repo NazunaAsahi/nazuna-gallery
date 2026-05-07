@@ -1,0 +1,15 @@
+# Rust
+target/
+**/*.rs.bk
+
+# Wasm-pack
+pkg/
+
+# Wrangler / Node
+.wrangler/
+node_modules/
+dist/
+
+# Env
+.env
+.dev.vars

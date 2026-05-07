@@ -1,0 +1,19 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "gallery-backend",
+	"main": "build/index.js",
+	"compatibility_date": "2026-05-06",
+	"observability": {
+		"enabled": true
+	},
+	"build": {
+		"command": "worker-build --release",
+		"watch_dir": "src"
+	},
+	"r2_buckets": [
+		{
+			"binding": "BUCKET",
+			"bucket_name": "nazuna-gallery-assets"
+		}
+	]
+}

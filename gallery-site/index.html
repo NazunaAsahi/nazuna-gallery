@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazuna Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Nazuna Gallery</h1>
+    </header>
+    <div id="stats" class="stats-bar"></div>
+    <div id="pagination-top" class="pagination"></div>
+    <main>
+        <div id="gallery"></div>
+    </main>
+    <div id="pagination-bottom" class="pagination"></div>
+    <script type="module">
+        import init from './pkg/gallery_site.js';
+        async function run() {
+            await init();
+        }
+        run();
+    </script>
+</body>
+</html>
