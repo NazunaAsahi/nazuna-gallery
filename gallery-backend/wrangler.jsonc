@@ -6,6 +6,9 @@
 	"observability": {
 		"enabled": true
 	},
+	"assets": {
+		"directory": "../gallery-site/dist"
+	},
 	"build": {
 		"command": "worker-build --release",
 		"watch_dir": "src"

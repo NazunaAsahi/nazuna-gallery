@@ -2,8 +2,6 @@ use wasm_bindgen::prelude::*;
 use wasm_bindgen_futures::JsFuture;
 use web_sys::{Request, RequestInit, RequestMode, Response, Document, Element};
 
-const BACKEND_URL: &str = "http://localhost:8787";
-
 #[wasm_bindgen(start)]
 pub async fn run() -> Result<(), JsValue> {
     console_error_panic_hook::set_once();
@@ -22,8 +20,8 @@ pub async fn run() -> Result<(), JsValue> {
     opts.set_method("GET");
     opts.set_mode(RequestMode::Cors);
 
-    let url = format!("{}/list", BACKEND_URL);
-    let request = Request::new_with_str_and_init(&url, &opts)?;
+    let url = "/list";
+    let request = Request::new_with_str_and_init(url, &opts)?;
 
     let resp_value = JsFuture::from(window.fetch_with_request(&request)).await?;
     let resp: Response = resp_value.dyn_into().expect("response should be a Response");
@@ -71,7 +69,7 @@ fn create_gallery_card(document: &Document, key: &str) -> Result<Element, JsValu
     img_container.set_attribute("class", "image-container")?;
     
     let img = document.create_element("img")?;
-    let img_url = format!("{}/image/{}", BACKEND_URL, key);
+    let img_url = format!("/image/{}", key);
     img.set_attribute("src", &img_url)?;
     img.set_attribute("alt", key)?;
     img.set_attribute("loading", "lazy")?;

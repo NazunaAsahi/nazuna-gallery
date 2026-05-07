@@ -1,0 +1,12 @@
+node_modules
+target
+src
+Cargo.toml
+Cargo.lock
+package.json
+package-lock.json
+.vscode
+.wrangler
+.git
+.gitignore
+wrangler.jsonc

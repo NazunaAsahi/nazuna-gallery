@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "deploy": "wrangler deploy",
+    "build": "wasm-pack build --target web && powershell -Command \"if (Test-Path dist) { Remove-Item -Recurse -Force dist }; New-Item -ItemType Directory -Force dist; Copy-Item index.html, style.css dist/; Copy-Item -Recurse pkg dist/\"",
+    "deploy": "npm run build && wrangler deploy",
     "dev": "wrangler dev",
     "start": "wrangler dev"
   },
